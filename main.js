@@ -214,7 +214,7 @@ var backend_time = document.getElementById('backend_time');
 
 var pastDate = "01";
 var pastMonth = "07";
-var pastYear = "2021";
+var pastYear = "2022";
 
 var date = new Date(); // new Date() is a javascript method that collects time from your device
 
