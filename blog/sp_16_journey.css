@@ -6,127 +6,134 @@
        White Card: #fff
     ----------------------------------- */
 
-        body {
-            font-family: "Poppins", Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
-        }
+ body {
+     font-family: "Poppins", Arial, sans-serif;
+     background-color: #f8f9fa;
+     color: #333;
+     margin: 0;
+     padding: 0;
+     line-height: 1.7;
+ }
 
-        header {
-            background: linear-gradient(135deg, #1e3d59, #244c70);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
+ header {
+     background: linear-gradient(135deg, #1e3d59, #244c70);
+     color: white;
+     padding: 60px 20px;
+     text-align: center;
+ }
 
-        header h1 {
-            font-size: 2.4rem;
-            margin-bottom: 10px;
-        }
+ header h1 {
+     font-size: 2.4rem;
+     margin-bottom: 10px;
+ }
 
-        header p {
-            font-size: 1.1rem;
-            color: #dfe6ec;
-            font-style: italic;
-        }
+ header p {
+     font-size: 1.1rem;
+     color: #dfe6ec;
+     font-style: italic;
+ }
 
-        main {
-            max-width: 850px;
-            background: #fff;
-            margin: -40px auto 60px;
-            padding: 40px 50px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-        }
+ main {
+     max-width: 850px;
+     background: #fff;
+     margin: -40px auto 60px;
+     padding: 40px 50px;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+     border-radius: 12px;
+ }
 
-        h2 {
-            color: #1e3d59;
-            border-left: 5px solid #f5b041;
-            padding-left: 10px;
-            margin-top: 50px;
-            margin-bottom: 15px;
-        }
+ h2 {
+     color: #1e3d59;
+     border-left: 5px solid #f5b041;
+     padding-left: 10px;
+     margin-top: 50px;
+     margin-bottom: 15px;
+ }
 
-        h3 {
-            color: #244c70;
-            margin-top: 30px;
-            font-size: 1.1rem;
-        }
+ h3 {
+     color: #244c70;
+     margin-top: 30px;
+     font-size: 1.1rem;
+ }
 
-        p {
-            color: #555;
-            font-size: 1rem;
-            margin-bottom: 18px;
-        }
+ .tools a {
+     text-decoration: none;
+     color: #333;
+ }
 
-        blockquote {
-            border-left: 5px solid #f5b041;
-            background: #fffaf2;
-            padding: 10px 15px;
-            margin: 20px 0;
-            font-style: italic;
-            color: #444;
-        }
+ p {
+     color: #555;
+     font-size: 1rem;
+     margin-bottom: 18px;
+ }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+ blockquote {
+     border-left: 5px solid #f5b041;
+     background: #fffaf2;
+     padding: 10px 15px;
+     margin: 20px 0;
+     font-style: italic;
+     color: #444;
+ }
 
-        table th,
-        table td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
+ table {
+     width: 100%;
+     border-collapse: collapse;
+     margin-top: 20px;
+ }
 
-        table th {
-            background-color: #1e3d59;
-            color: white;
-        }
+ table th,
+ table td {
+     border: 1px solid #ddd;
+     padding: 10px;
+     text-align: left;
+ }
 
-        table tr:nth-child(even) {
-            background-color: #f4f6f8;
-        }
+ table th {
+     background-color: #1e3d59;
+     color: white;
+ }
 
-        .final-thought {
-            background: #f5b041;
-            color: #1e3d59;
-            padding: 15px 20px;
-            font-weight: 600;
-            border-radius: 8px;
-            margin-top: 40px;
-            text-align: center;
-            font-size: 1.05rem;
-        }
+ table tr:nth-child(even) {
+     background-color: #f4f6f8;
+ }
 
-        footer{
-            background: #1e3d59;
-            text-align: center;
-            padding: 20px 10px;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-        }
-        footer p{
-            color: white;
-        }
-         footer p a{
-            color: #f5b041;
-            text-decoration: none;
-            font-weight: medium;
-        }
+ .final-thought {
+     background: #f5b041;
+     color: #1e3d59;
+     padding: 15px 20px;
+     font-weight: 600;
+     border-radius: 8px;
+     margin-top: 40px;
+     text-align: center;
+     font-size: 1.05rem;
+ }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            main {
-                padding: 30px 20px;
-            }
+ footer {
+     background: #1e3d59;
+     text-align: center;
+     padding: 20px 10px;
+     font-size: 0.95rem;
+     letter-spacing: 0.3px;
+ }
 
-            header h1 {
-                font-size: 1.8rem;
-            }
-        }
+ footer p {
+     color: white;
+ }
+
+ footer p a {
+     color: #f5b041;
+     text-decoration: none;
+     font-weight: medium;
+ }
+
+ /* Responsive */
+ @media (max-width: 768px) {
+     main {
+         padding: 30px 20px;
+     }
+
+     header h1 {
+         font-size: 1.8rem;
+     }
+ }
