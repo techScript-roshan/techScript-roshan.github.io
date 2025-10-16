@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Advance Age Calculator</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <!-- Custom CSS  -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Google Font  */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            color: white;
+            height: fit-content;
+            width: auto;
+        }
+
+        /* Background animations  */
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            bottom: -20px;
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(180deg, #03a9f4, #04ed3ef9, transparent);
+            /* animation: animate 5s ease-in-out infinite; */
+        }
+
+        @keyframes animate {
+
+            0%,
+            100% {
+                transform: translateY(10px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .head_container {
+            position: relative;
+        }
+
+        .box {
+            position: relative;
+            z-index: 1;
+            width: 200px;
+            height: 200px;
+            backdrop-filter: blur(20px);
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: animate 5s ease-in-out infinite;
+            animation-delay: -2.5s;
+            margin-top: 150px;
+            margin-left: 650px;
+        }
+
+        .clock {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(transparent, rgba(255, 255, 255, 0.2)), url(https://drive.google.com/uc?id=14h_vuQLYDl2thudBW1yZJ0ufZwWUhNkv);
+            background-size: cover;
+            border-radius: 50%;
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .clock::before {
+
+            content: '';
+            position: absolute;
+            height: 15px;
+            width: 15px;
+            background: #fff;
+            border-radius: 50%;
+            z-index: 10000;
+
+        }
+
+        .hour,
+        .min,
+        .sec {
+            position: absolute;
+        }
+
+        .sec {
+            position: absolute;
+        }
+
+        .hour,
+        .hr {
+            width: 150px;
+            height: 80px;
+        }
+
+        .min,
+        .mn {
+            width: 180px;
+            height: 110px;
+        }
+
+        .sec,
+        .sc {
+            width: 210px;
+            height: 140px;
+        }
+
+
+        .hr,
+        .mn,
+        .sc {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .hr::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 40px;
+            background: #f4c10ae4;
+            z-index: 11;
+            border-radius: 16px;
+        }
+
+        .mn::before {
+            content: '';
+            position: relative;
+            width: 4px;
+            height: 60px;
+            background: rgb(255, 255, 255);
+            z-index: 119;
+            border-radius: 16px;
+        }
+
+        .sc::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 90px;
+            background: #fff;
+            z-index: 12;
+            border-radius: 6px;
+        }
+
+        /* Calculation Container  */
+
+        #btn {
+            cursor: pointer;
+            background-color: transparent;
+        }
+
+        .title {
+            font-size: 40px;
+            padding-top: 5%;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding-bottom: 30px;
+            background: linear-gradient(180deg, #ffffff, #04ed3eaa, transparent);
+            border-radius: 4px 4px 2px 2px;
+            color: black;
+        }
+
+        #container .first_heading {
+            font-size: 13px;
+            font-weight: 400;
+            padding: 20px 20px 10px 30px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .sec_heading {
+            font-size: 27px;
+            font-weight: 501;
+            padding: 20px 20px 10px 30px;
+            text-align: center;
+        }
+
+        .date {
+            font-weight: bold;
+        }
+
+        #bground {
+            border: 2px solid rgb(135, 246, 163);
+            border-radius: 5px;
+        }
+
+        .button {
+            background-image: linear-gradient(red, yellow);
+            width: 118px;
+            border: 2px solid white;
+            border-radius: 12px;
+            height: 34px;
+            padding: 4px 4px 4px 4px;
+            margin-left: 43%;
+            font-weight: 400;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 3%;
+        }
+
+        #output {
+            width: 45%;
+            padding-left: 5%;
+        }
+
+        #output {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 20%;
+            margin-top: 3%;
+        }
+
+        #output input {
+            padding-left: 30px;
+            width: 280px;
+        }
+
+        #output h4 {
+            color: #1d1e1e;
+        }
+
+        .date1 {
+            font-size: 30px;
+            font-weight: 500;
+            color: #861212;
+            margin: 2% 2% 3% 41%;
+
+        }
+
+        #result_section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .date-red {
+            display: flex;
+            text-align: center;
+        }
+
+        .date-red input {
+            padding-left: 10px;
+        }
+
+        .next-birthday {
+            margin-top: 2%;
+        }
+
+        .next-birthday input {
+            margin-left: 46%;
+            margin-top: 1%;
+            width: 110px;
+            padding-left: 7px;
+        }
+
+        #footer {
+            margin-top: 2%;
+        }
+
+        #footer b {
+            color: rgb(48 59 60);
+        }
+    </style>
+
+    <link rel="me" href="https://draft.blogger.com/profile/07333662754178179380" />
+    <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109' />
+    <meta name='google-adsense-platform-domain' content='blogspot.com' />
+</head>
+
+<body>
+    <div class="header">
+
+        <header>
+    </div>
+    <div class="head_container">
+        <div class="box">
+            <div class="clock">
+                <div class="hour">
+                    <div class="hr" id="hr">
+
+                    </div>
+                </div>
+                <div class="min">
+                    <div class="mn" id="mn">
+
+                    </div>
+                </div>
+                <div class="sec">
+                    <div class="sc" id="sc">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <script>
+        // Background Animation 
+
+        const deg = 6;
+        const hr = document.querySelector('#hr');
+        const mn = document.querySelector('#mn');
+        const sc = document.querySelector('#sc');
+
+        setInterval(() => {
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+
+            hr.style.transform = `rotateZ(${hh + (mm / 12)}deg)`;
+            mn.style.transform = `rotateZ(${(mm)}deg)`;
+            sc.style.transform = `rotateZ(${(ss)}deg)`;
+        })
+
+        // Container items 
+
+        let mS = ['Jan (01)', 'Feb (02)', 'Mar (03)', 'Apr (04)', 'May (05)', 'Jun (06)', 'Jul (07)', 'Aug (08)', 'Sep (09)', 'Oct (10)', 'Nov (11)', 'Dec (12)'];
+        let dat = new Date();
+        let curday = dat.getDate();
+        let curmon = dat.getMonth() + 1;
+        let curyear = dat.getFullYear();
+        let startyear = dat.getFullYear() - 105;
+        let endyear = dat.getFullYear();
+        function checkleapyear(datea) {
+            if (datea.getYear() % 4 == 0) {
+                if (datea.getYear() % 10 != 0) {
+                    return true;
+                } else {
+                    if (datea.getYear() % 400 == 0) return true;
+                    else return false;
+                }
+            }
+            return false;
+        }
+
+        function DaysInMonth(Y, M) {
+            with (new Date(Y, M, 1, 12)) {
+                setDate(0);
+                return getDate();
+            }
+        }
+
+        function datediff(date1, date2) {
+            let y1 = date1.getFullYear(),
+                m1 = date1.getMonth(),
+                d1 = date1.getDate(),
+                y2 = date2.getFullYear(),
+                m2 = date2.getMonth(),
+                d2 = date2.getDate();
+            if (d1 < d2) {
+                m1--;
+                d1 += DaysInMonth(y2, m2);
+            }
+            if (m1 < m2) {
+                y1--;
+                m1 += 12;
+            }
+            return [y1 - y2, m1 - m2, d1 - d2];
+        }
+
+        function calage() {
+            let calday = document.birthday.day.options[document.birthday.day.selectedIndex].value;
+            let calmon = document.birthday.month.options[document.birthday.month.selectedIndex].value;
+            let calyear = document.birthday.year.options[document.birthday.year.selectedIndex].value;
+            if (curday == "" || curmon == "" || curyear == "" || calday == "" || calmon == "" || calyear == "") {
+                alert("please fill all the values..!!");
+            } else {
+                let curd = new Date(curyear, curmon - 1, curday);
+                let cald = new Date(calyear, calmon - 1, calday);
+
+                var diff = Date.UTC(curyear, curmon, curday, 0, 0, 0) - Date.UTC(calyear, calmon, calday, 0, 0, 0);
+                let dife = datediff(curd, cald);
+                document.birthday.age.value = dife[0] + " years " + dife[1] + " months and " + dife[2] + " days";
+                let monleft = (dife[0] * 12) + dife[1];
+                let secleft = diff / 1000 / 60;
+                let hrsleft = (secleft / 60);
+                let daysleft = (hrsleft / 24);
+                document.birthday.months.value = monleft + " month";
+                document.birthday.daa.value = daysleft + " days";
+                document.birthday.hours.value = hrsleft + " hours";
+                document.birthday.min.value = secleft + " minutes";
+                document.birthday.sec.value = (secleft * 60) + " seconds";
+                let as = parseInt(calyear) + dife[0] + 1;
+                var diff = Date.UTC(as, calmon, calday, 0, 0, 0) - Date.UTC(curyear, curmon, curday, 0, 0, 0);
+                let datee = diff / 1000 / 60 / 60 / 24;
+                document.birthday.nbday.value = datee + " Days";
+            }
+        }
+    </script>
+
+    </div>
+    <div class="row" id="container">
+        <h3 class="title">Calculate your age</h3>
+        <p class="first_heading">
+            Calculate your age in years, months, days, hours, minutes and seconds.
+        </p>
+
+        <p class="sec_heading">Select Date of Birth</p>
+        <form name="birthday">
+            <div class="row justify-content-center">
+                <div class="col-2 text-center">
+                    <span class="date">Date &nbsp; :</span>&nbsp;
+                    <select name="day" size="0" id="bground">
+                        <script
+                            type="text/javascript">for (var j = 1; j < 32; j++)document.write("<option value=" + j + ">" + j + "</option>");</script>
+                    </select>
+
+                </div>
+                <div class="col-2 text-center">
+                    <span class="date">Month &nbsp; :</span> &nbsp;
+                    <select name="month" size="0" id="bground">
+                        <script
+                            type="text/javascript">for (var i = 1; i <= 12; i++)document.write("<option value=" + i + ">" + mS[i - 1] + "</option>");</script>
+                    </select>
+
+                </div>
+                <div class="col-2 text-center">
+                    <span class="date ">Year &nbsp;:</span> &nbsp;
+                    <select name="year" size="0" id="bground">
+                        <script
+                            type="text/javascript">for (var k = startyear; k <= endyear; k++)document.write("<option value=" + k + ">" + k + "</option>");</script>
+                    </select>
+                </div>
+            </div>
+            <p>
+                <input class="button" name="start" onclick="calage()" value="Calculate" type="button">
+            </p>
+
+            <div id="output">
+                <h4>Your Age is &nbsp; &nbsp; : &nbsp; &nbsp; </h4>
+                <input name="age">
+
+            </div>
+
+            <p class="date1">Details Result</p>
+            <div class="row table-condensed" id="result_section">
+                <div class="row justify-content-evenly">
+                    <div class="col-3 date-red">
+                        Total months &nbsp;
+                        <input name="months" style="width: 115px;">
+                    </div>
+                    <div class="col-3 date-red">
+                        Total days &nbsp;
+                        <input name="daa" style="width: 115px;">
+                    </div>
+                    <div class="col-3 date-red">
+                        Total hours &nbsp;
+                        <input name="hours" style="width: 135px;">
+                    </div>
+                </div>
+                <div class="row justify-content-evenly mt-4">
+                    <div class="col-5 justify-content-center date-red">
+                        Total minutes &nbsp;
+                        <input name="min" style="width: 165px;">
+                    </div>
+                    <div class="col-5  date-red">
+                        Total seconds &nbsp;
+                        <input name="sec" style="width: 175px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center next-birthday">
+                <div class="col-md-12 date-red justify-content-center">
+                    <b>Your next birthday in</b>
+                </div>
+                <div class="col-md-12 justify-content-center">
+                    <input name="nbday">
+                </div>
+            </div>
+        </form>
+        <div class="row text-center justify-content-center" id="footer">
+            <div class="col-10 ">
+                This Calculator is designed by : <b>Roshan Raj </b>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+
+
+
+</body>
+
+</html>
